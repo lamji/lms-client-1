@@ -6,6 +6,133 @@ This document defines the Minimum Viable Product for the LMS platform. It covers
 
 ---
 
+## Development & Pricing
+
+### Project Overview
+
+This is an **enterprise-level Learning Management System** built to serve medical professionals and educational institutions. The scope is comprehensive, covering responsive web, mobile native apps (iOS/Android), secure payment processing, and a robust admin dashboard. While the initial investment is significant, the ROI is assured through:
+
+- **High-margin subscription model** — recurring monthly revenue with multiple tiers
+- **Scalable infrastructure** — built on serverless and cloud-native tech (zero ops overhead)
+- **Low customer acquisition cost** — direct institutional partnerships reduce marketing spend
+- **Minimal churn risk** — mission-critical educational platform with high stickiness
+
+### Development Investment
+
+**Total Project Cost: ₱300,000 – ₱350,000** (USD ~$5,400 – $6,300)
+
+This covers **full development, deployment, and 3 months of post-launch support**.
+
+#### Ownership & Revenue Share
+
+- **Client Equity:** 15% ownership stake
+- **Ongoing Revenue:** 15% monthly from all subscription revenue for maintenance, support, and feature upgrades (no additional development costs for updates)
+
+**Example:** If the platform generates ₱100,000/month in subscription revenue:
+- Client receives: ₱15,000/month for life (maintenance + future upgrades included)
+- Developer retains: ₱85,000/month
+
+### Project Timeline & Deliverables
+
+#### **Phase 1: Web & Admin Dashboard** (Weeks 1–4)
+**Deliverable:** Full-featured web platform + admin dashboard
+
+- Learner authentication (login, signup, forgot password)
+- Free simulation experience
+- Subscription flow integration with PayMongo
+- Learner profile with payment history
+- Admin dashboard (all 5 sections: Dashboard, Subscribers, Unsubscribers, Modules, Payments)
+- Database schema, API endpoints, security hardening
+- **Delivery:** End of Month 1
+
+**Payment Milestone 1:** 30% down payment (₱90,000 – ₱105,000)
+
+---
+
+#### **Phase 2: Mobile Apps (iOS + Android)** (Weeks 5–8)
+**Deliverable:** Native iOS and Android apps with feature parity to web
+
+- Cross-platform native development (Swift for iOS, Kotlin for Android)
+- Offline capability for course content
+- Push notifications for learning reminders
+- One-time purchase & auto-renew subscription support
+- Apple App Store & Google Play Store app submission prep
+- **Delivery:** End of Month 2 or earlier
+
+**Payment Milestone 2:** 35% of remaining balance (₱73,500 – ₱85,750)
+
+---
+
+#### **Phase 3: QA, Stress Testing & Security Hardening** (Weeks 9–10)
+**Deliverable:** Production-ready, security-audited platform
+
+- End-to-end testing across all devices and browsers
+- Load testing (1,000+ concurrent users)
+- Security audit (OWASP Top 10, PCI-DSS compliance for payments)
+- Penetration testing by third-party security firm (optional add-on)
+- Bug fixes and performance optimization
+- **Delivery:** 1–2 weeks post-Phase 2
+
+**Payment Milestone 3:** 20% of remaining balance (₱42,000 – ₱48,997)
+
+---
+
+#### **Phase 4: App Store Deployment & Launch** (Weeks 11–16)
+**Deliverable:** Live on web, App Store, and Google Play
+
+- Apple App Store review (1–3 weeks typical)
+- Google Play Store review (1 week typical)
+- Bug fixes post-review
+- Production support & monitoring
+- Learner onboarding & customer success materials
+- **Delivery:** Ongoing; expected live within 2–3 weeks of submission
+
+**Payment Milestone 4:** Final 15% (₱45,000 – ₱52,500)
+
+### Payment Schedule
+
+| Milestone | Deliverable | Percentage | Amount (₱) |
+|-----------|-------------|------------|-----------|
+| **Down Payment** | Project kickoff, design approval | 30% | 90,000 – 105,000 |
+| **Phase 1 (Week 4)** | Web + Admin complete | 35% | 105,000 – 122,500 |
+| **Phase 2 (Week 8)** | iOS + Android complete | 20% | 60,000 – 70,000 |
+| **Phase 3 & 4 (Week 16)** | Live on App Store + Play Store | 15% | 45,000 – 52,500 |
+| **TOTAL** | Full platform live | 100% | 300,000 – 350,000 |
+
+### Ongoing Revenue & Support (15% Monthly)
+
+After launch, the 15% monthly commission covers **unlimited**:
+
+- Bug fixes and hotfixes
+- Performance optimization
+- Security patches and updates
+- New feature development (within reason)
+- Infrastructure scaling
+- Third-party service integrations (e.g., new payment gateways)
+- Analytics dashboards and reporting
+
+**No additional development costs.** The 15% covers everything.
+
+### Why This Pricing is Fair
+
+| Factor | Justification |
+|--------|---------------|
+| **Complexity** | Enterprise architecture (microservices-ready, scalable, secure) |
+| **Timeline** | 4 months from contract to live (aggressive but achievable) |
+| **Team** | Senior full-stack engineer + junior dev (cost-optimized) |
+| **Tech Stack** | Modern, maintainable, zero vendor lock-in |
+| **Support** | 3 years of maintenance + upgrades included in 15% |
+| **ROI** | Breakeven within 6–12 months depending on marketing |
+
+### Success Metrics
+
+- **Month 1–3:** Onboard 100–200 learners, validate product-market fit
+- **Month 6:** Reach ₱50,000+/month in recurring revenue (client receives ₱7,500/month)
+- **Year 1:** Scale to ₱200,000+/month recurring (client receives ₱30,000/month)
+- **Year 3:** Platform self-sustainable; developer overhead reduces to 5 hours/week
+
+---
+
 ## External Services
 
 ### Payment
