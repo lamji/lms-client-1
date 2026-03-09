@@ -19,7 +19,7 @@ This is an **enterprise-level Learning Management System** built to serve medica
 
 ### Development Investment
 
-**Total Project Cost: ₱300,000 – ₱350,000** (USD ~$5,400 – $6,300)
+**Total Project Cost: ₱300,000 – ₱350,000** 
 
 This covers **full development, deployment, and 3 months of post-launch support**.
 
@@ -35,6 +35,9 @@ This covers **full development, deployment, and 3 months of post-launch support*
 ### Project Timeline & Deliverables
 
 #### **Phase 1: Web & Admin Dashboard** (Weeks 1–4)
+
+**⚠️ PAYMENT REQUIRED FIRST:** 30% down payment (₱90,000 – ₱105,000) must be received and cleared before development begins.
+
 **Deliverable:** Full-featured web platform + admin dashboard
 
 - Learner authentication (login, signup, forgot password)
@@ -43,9 +46,11 @@ This covers **full development, deployment, and 3 months of post-launch support*
 - Learner profile with payment history
 - Admin dashboard (all 5 sections: Dashboard, Subscribers, Unsubscribers, Modules, Payments)
 - Database schema, API endpoints, security hardening
-- **Delivery:** End of Month 1
+- **Delivery:** End of Month 1 (upon receiving down payment)
 
 **Payment Milestone 1:** 30% down payment (₱90,000 – ₱105,000)
+- **Due:** Before development kickoff
+- **Condition:** Development starts only after payment clears
 
 ---
 
@@ -89,15 +94,22 @@ This covers **full development, deployment, and 3 months of post-launch support*
 
 **Payment Milestone 4:** Final 15% (₱45,000 – ₱52,500)
 
-### Payment Schedule
+### Payment Terms & Schedule
 
-| Milestone | Deliverable | Percentage | Amount (₱) |
-|-----------|-------------|------------|-----------|
-| **Down Payment** | Project kickoff, design approval | 30% | 90,000 – 105,000 |
-| **Phase 1 (Week 4)** | Web + Admin complete | 35% | 105,000 – 122,500 |
-| **Phase 2 (Week 8)** | iOS + Android complete | 20% | 60,000 – 70,000 |
-| **Phase 3 & 4 (Week 16)** | Live on App Store + Play Store | 15% | 45,000 – 52,500 |
-| **TOTAL** | Full platform live | 100% | 300,000 – 350,000 |
+**⚠️ CRITICAL:** Down payment of **30% must be received and cleared BEFORE development begins**. No work will commence until payment is confirmed.
+
+#### Payment Milestones
+
+| Milestone | Deliverable | Percentage | Amount (₱) | Payment Timing |
+|-----------|-------------|------------|-----------|----------------|
+| **Down Payment** | Project kickoff + design approval | 30% | 90,000 – 105,000 | **BEFORE Phase 1 starts** |
+| **Phase 1 Complete (Week 4)** | Web + Admin dashboard live | 35% | 105,000 – 122,500 | Upon Phase 1 delivery |
+| **Phase 2 Complete (Week 8)** | iOS + Android apps ready | 20% | 60,000 – 70,000 | Upon Phase 2 delivery |
+| **Phase 3 & 4 Complete (Week 16)** | Live on App Store + Play Store | 15% | 45,000 – 52,500 | Upon final launch |
+| **TOTAL** | Full platform live, production-ready | 100% | 300,000 – 350,000 | — |
+
+**Payment Method:** Bank transfer (preferred) or cryptocurrency accepted
+**Invoice Terms:** 50% upon signing, 50% before Phase 1 delivery (flexible based on agreement)
 
 ### Developer Ongoing Revenue & Support (15% Monthly)
 
