@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Platform — MVP Specification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #ffffff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #0891b2;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #0891b2;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #0369a1;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 4px solid #0369a1;
+            padding-left: 15px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: #0c4a6e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 1.1em;
+            color: #164e63;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #0c4a6e;
+            font-weight: 600;
+        }
+
+        em {
+            color: #7c3aed;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: #0891b2;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #0891b2;
+        }
+
+        td {
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+        }
+
+        tr:nth-child(even) {
+            background: #f3f4f6;
+        }
+
+        tr:hover {
+            background: #e0f2fe;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning strong {
+            color: #d97706;
+        }
+
+        .highlight {
+            background: #dcfce7;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .payment-box {
+            background: #f0f9ff;
+            border: 2px solid #0891b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .payment-box h4 {
+            color: #0891b2;
+            margin-top: 0;
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background: #d1d5db;
+            margin: 40px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #0891b2;
+            padding-left: 20px;
+            margin: 15px 0;
+            color: #4b5563;
+            font-style: italic;
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .phase-box {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .phase-box h4 {
+            color: #0c4a6e;
+            margin-top: 0;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+            }
+
+            .divider {
+                page-break-after: avoid;
+            }
+
+            h2 {
+                page-break-before: avoid;
+                page-break-after: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #d1d5db;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LMS Platform — MVP Specification</h1>
+
+        <h2>Scope</h2>
+        <p>This document defines the Minimum Viable Product for the LMS platform. It covers the learner-facing app/web experience, authentication flows, payment integration, and the admin dashboard. The MVP follows the exact scope and flow provided in the BRD draft.</p>
+
+        <hr class="divider">
+
+        <h2>Development & Pricing</h2>
+
+        <h3>Project Overview</h3>
+        <p>This is an <strong>enterprise-level Learning Management System</strong> built to serve medical professionals and educational institutions. The scope is comprehensive, covering responsive web, mobile native apps (iOS/Android), secure payment processing, and a robust admin dashboard. While the initial investment is significant, the ROI is assured through:</p>
+        <ul>
+            <li><strong>High-margin subscription model</strong> — recurring monthly revenue with multiple tiers</li>
+            <li><strong>Scalable infrastructure</strong> — built on serverless and cloud-native tech (zero ops overhead)</li>
+            <li><strong>Low customer acquisition cost</strong> — direct institutional partnerships reduce marketing spend</li>
+            <li><strong>Minimal churn risk</strong> — mission-critical educational platform with high stickiness</li>
+        </ul>
+
+        <h3>Development Investment</h3>
+        <p><strong>Total Project Cost: ₱300,000 – ₱350,000</strong> (USD ~$5,400 – $6,300)</p>
+        <p>This covers <strong>full development, deployment, and 3 months of post-launch support</strong>.</p>
+
+        <h4>Ownership & Revenue Share</h4>
+        <ul>
+            <li><strong>Developer Equity:</strong> 15% ownership stake in the platform</li>
+            <li><strong>Developer Ongoing Revenue:</strong> 15% monthly from all subscription revenue for maintenance, support, and feature upgrades (no additional development costs for updates)</li>
+        </ul>
+
+        <p><strong>Example:</strong> If the platform generates ₱100,000/month in subscription revenue:</p>
+        <ul>
+            <li>Developer receives: ₱15,000/month perpetually (for maintenance + future upgrades + feature development)</li>
+            <li>Client retains: ₱85,000/month as net profit</li>
+        </ul>
+
+        <h3>Project Timeline & Deliverables</h3>
+
+        <div class="phase-box">
+            <h4>Phase 1: Web & Admin Dashboard (Weeks 1–4)</h4>
+            <div class="warning">
+                <strong>⚠️ PAYMENT REQUIRED FIRST:</strong> 30% down payment (₱90,000 – ₱105,000) must be received and cleared before development begins.
+            </div>
+            <p><strong>Deliverable:</strong> Full-featured web platform + admin dashboard</p>
+            <ul>
+                <li>Learner authentication (login, signup, forgot password)</li>
+                <li>Free simulation experience</li>
+                <li>Subscription flow integration with PayMongo</li>
+                <li>Learner profile with payment history</li>
+                <li>Admin dashboard (all 5 sections: Dashboard, Subscribers, Unsubscribers, Modules, Payments)</li>
+                <li>Database schema, API endpoints, security hardening</li>
+                <li><strong>Delivery:</strong> End of Month 1 (upon receiving down payment)</li>
+            </ul>
+            <p><strong>Payment Milestone 1:</strong> 30% down payment (₱90,000 – ₱105,000)</p>
+        </div>
+
+        <div class="phase-box">
+            <h4>Phase 2: Mobile Apps (iOS + Android) (Weeks 5–8)</h4>
+            <p><strong>Deliverable:</strong> React Native iOS and Android apps with feature parity to web</p>
+            <ul>
+                <li>React Native cross-platform development (single codebase for iOS + Android)</li>
+                <li>Push notifications for learning reminders</li>
+                <li>One-time purchase & auto-renew subscription support</li>
+                <li>Apple App Store & Google Play Store app submission prep</li>
+                <li><strong>Delivery:</strong> End of Month 2 or earlier</li>
+            </ul>
+            <p><strong>Payment Milestone 2:</strong> 35% of remaining balance (₱73,500 – ₱85,750)</p>
+        </div>
+
+        <div class="phase-box">
+            <h4>Phase 3: QA & Stress Testing (Weeks 9–10)</h4>
+            <p><strong>Deliverable:</strong> Production-ready platform</p>
+            <ul>
+                <li>End-to-end testing across all devices and browsers</li>
+                <li>Load testing (1,000+ concurrent users)</li>
+                <li>Bug fixes and performance optimization</li>
+                <li><strong>Delivery:</strong> 1–2 weeks post-Phase 2</li>
+            </ul>
+            <p><strong>Payment Milestone 3:</strong> 20% of remaining balance (₱42,000 – ₱48,997)</p>
+        </div>
+
+        <div class="phase-box">
+            <h4>Phase 4: App Store Deployment & Launch (Weeks 11–16)</h4>
+            <p><strong>Deliverable:</strong> Live on web, App Store, and Google Play</p>
+            <ul>
+                <li>Apple App Store review (1–3 weeks typical)</li>
+                <li>Google Play Store review (1 week typical)</li>
+                <li>Bug fixes post-review</li>
+                <li>Production support & monitoring</li>
+                <li>Learner onboarding & customer success materials</li>
+                <li><strong>Delivery:</strong> Ongoing; expected live within 2–3 weeks of submission</li>
+            </ul>
+            <p><strong>Payment Milestone 4:</strong> Final 15% (₱45,000 – ₱52,500)</p>
+        </div>
+
+        <h3>Payment Terms & Schedule</h3>
+
+        <div class="warning">
+            <strong>⚠️ CRITICAL:</strong> Down payment of <strong>30% must be received and cleared BEFORE development begins</strong>. No work will commence until payment is confirmed.
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Milestone</th>
+                    <th>Deliverable</th>
+                    <th>Percentage</th>
+                    <th>Amount (₱)</th>
+                    <th>Payment Timing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Down Payment</strong></td>
+                    <td>Project kickoff + design approval</td>
+                    <td>30%</td>
+                    <td>90,000 – 105,000</td>
+                    <td><strong>BEFORE Phase 1 starts</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Phase 1 Complete (Week 4)</strong></td>
+                    <td>Web + Admin dashboard live</td>
+                    <td>35%</td>
+                    <td>105,000 – 122,500</td>
+                    <td>Upon Phase 1 delivery</td>
+                </tr>
+                <tr>
+                    <td><strong>Phase 2 Complete (Week 8)</strong></td>
+                    <td>iOS + Android apps ready</td>
+                    <td>20%</td>
+                    <td>60,000 – 70,000</td>
+                    <td>Upon Phase 2 delivery</td>
+                </tr>
+                <tr>
+                    <td><strong>Phase 3 & 4 Complete (Week 16)</strong></td>
+                    <td>Live on App Store + Play Store</td>
+                    <td>15%</td>
+                    <td>45,000 – 52,500</td>
+                    <td>Upon final launch</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td>Full platform live, production-ready</td>
+                    <td>100%</td>
+                    <td>300,000 – 350,000</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Payment Method:</strong> Bank transfer only</p>
+        <p><strong>Invoice Terms:</strong> 30% down payment upfront, remaining 70% split across phase milestones</p>
+
+        <h3>Developer Ongoing Revenue & Support (15% Monthly)</h3>
+        <p>After launch, the developer receives 15% of all monthly subscription revenue in perpetuity, which covers <strong>unlimited</strong>:</p>
+        <ul>
+            <li>Bug fixes and hotfixes</li>
+            <li>Performance optimization</li>
+            <li>Security patches and updates</li>
+            <li>New feature development (within reason)</li>
+            <li>Infrastructure scaling</li>
+            <li>Third-party service integrations (e.g., new payment gateways)</li>
+            <li>Analytics dashboards and reporting</li>
+            <li>24/7 monitoring and uptime management</li>
+        </ul>
+        <p><strong>No additional development costs for the client.</strong> The 15% developer commission covers everything.</p>
+
+        <h3>Why This Pricing is Fair</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Factor</th>
+                    <th>Justification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Complexity</strong></td>
+                    <td>Enterprise architecture (microservices-ready, scalable, secure)</td>
+                </tr>
+                <tr>
+                    <td><strong>Timeline</strong></td>
+                    <td>4 months from contract to live (aggressive but achievable)</td>
+                </tr>
+                <tr>
+                    <td><strong>Team</strong></td>
+                    <td>Senior full-stack engineer + junior dev (cost-optimized)</td>
+                </tr>
+                <tr>
+                    <td><strong>Tech Stack</strong></td>
+                    <td>Modern, maintainable, zero vendor lock-in</td>
+                </tr>
+                <tr>
+                    <td><strong>Support</strong></td>
+                    <td>3 years of maintenance + upgrades included in 15%</td>
+                </tr>
+                <tr>
+                    <td><strong>ROI</strong></td>
+                    <td>Breakeven within 6–12 months depending on marketing</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Success Metrics & Revenue Projections</h3>
+        <ul>
+            <li><strong>Month 1–3:</strong> Onboard 100–200 learners, validate product-market fit</li>
+            <li><strong>Month 6:</strong> Reach ₱50,000+/month in recurring revenue
+                <ul>
+                    <li>Developer receives: ₱7,500/month (15%)</li>
+                    <li>Client retains: ₱42,500/month (85%)</li>
+                </ul>
+            </li>
+            <li><strong>Year 1:</strong> Scale to ₱200,000+/month recurring
+                <ul>
+                    <li>Developer receives: ₱30,000/month (15%)</li>
+                    <li>Client retains: ₱170,000/month (85%)</li>
+                </ul>
+            </li>
+            <li><strong>Year 3:</strong> Platform self-sustainable; developer overhead reduces to 5 hours/week
+                <ul>
+                    <li>Developer receives: ₱45,000–75,000/month (15% of ₱300k–500k MRR)</li>
+                    <li>Client retains: ₱255,000–425,000/month (85%)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <footer>
+            <p>LMS Platform — MVP Specification<br>
+            Generated: March 2026<br>
+            Bank Transfer Only | 30% Down Payment Required Before Development</p>
+        </footer>
+    </div>
+</body>
+</html>
