@@ -194,94 +194,87 @@ This document defines the Minimum Viable Product for the LMS platform. It covers
 
 ## Admin BRD
 
-### Purpose
+### Overview
 
-The admin area enables the team to run daily LMS operations in one place: manage learners, publish content, monitor subscriptions, and track overall business performance.
+Simple admin dashboard accessible via side navigation. 5 sections covering day-to-day operations.
 
-### Team Roles (RBAC)
+---
 
-| Role | Permissions | Example Scenario |
-|------|------------|-----------------|
-| **Owner / Admin Lead** | Full control, team access setup, final approvals | Owner adds new staff → assigns Support role → saves. Staff can handle tickets but cannot edit billing settings. |
-| **Content Admin** | Create, edit, publish, archive courses/lessons/questions | Content Admin opens Cardio Module 2 → updates lesson notes → submits for review → Owner approves → published. Learners see the revision within minutes. |
-| **Finance Admin** | Review payments, plan status, billing concerns | Finance Admin opens failed payments → filters by today → marks users for follow-up. Billing issues resolved before access expires. |
-| **Support Admin** | Assist with account issues, login help, subscription concerns | Support Admin receives "cannot log in" ticket → verifies email → triggers reset flow. Learner logs in again within one support session. |
+### Side Navigation
 
-**Access Control:** Each role sees only the modules and actions they need. Unauthorized access returns 403 and is logged in the audit trail.
+| # | Section | Purpose |
+|---|---------|---------|
+| 1 | **Dashboard** | Analytics overview |
+| 2 | **Subscribers** | List of active paid users |
+| 3 | **Unsubscribers** | List of expired / non-subscribed users |
+| 4 | **Modules** | Upload question sets via CSV |
+| 5 | **Payments** | Manage subscription plans and pricing |
 
-> Scenario (Role Guard): Support Admin navigates to `/admin/pricing` → system checks role → returns 403 "Access Denied" → attempt logged in audit trail with timestamp, user ID, and attempted resource.
+---
 
-### Admin Modules & Acceptance Criteria
+### 1. Dashboard
 
-#### 1. Dashboard Overview
+- **Analytics Cards** (displayed in a row):
+  - Total Sales (revenue)
+  - Total Students (all registered users)
+  - Subscribers (active paid users)
+  - Total Courses / Modules
+- **Sales Chart** — line chart showing sales over time (weekly or monthly view).
 
-- Shows: active learners, paid learners, expiring plans, failed payments.
-- **Acceptance:** Owner opens dashboard at 9 AM → sees 14 failed payments, 3 support tickets, 2 expiring plans → assigns failed payments to Finance Admin, tickets to Support Admin → each team member sees assigned items in their queue within 10 seconds.
+> Scenario: Admin opens Dashboard → sees 4 metric cards (₱48,500 sales, 320 students, 210 subscribers, 12 courses) → line chart shows upward trend this month.
 
-#### 2. User Management
+---
 
-- Search by email/name, view profile, check subscription status, unlock accounts.
-- **Acceptance:** Support Admin searches learner email → profile loads → sees "Account Locked (3 failed login attempts)" → clicks Unlock → system logs action with admin ID and timestamp → learner receives password reset email within 1 minute.
-- **Edge case:** Email not found → search returns "No results" with suggestion to search by name or phone.
+### 2. Subscribers
 
-#### 3. Content Management
+- Table/list of all users with an active paid subscription.
+- Columns: Name, Email, Plan, Start Date, End Date, Status.
+- Searchable and sortable.
 
-- Create, edit, publish, and archive courses, modules, and lessons.
-- **Acceptance:** Content Admin receives new exam guideline → edits affected lessons → clicks "Request Publish" → Owner reviews diff → approves → content goes live. Previous version archived with full change history.
-- **Edge case:** Two admins editing same lesson → system detects conflict → shows merge prompt.
+> Scenario: Admin searches "juan" → finds Juan dela Cruz on Quarterly plan expiring April 10 → verifies account is active.
 
-#### 4. Question Bank
+---
 
-- Add questions, set topic/difficulty tags, attach explanations.
-- **Acceptance:** Content Admin adds 20 questions tagged Pharma / Hard → attaches explanations per choice → submits. Questions appear in Question Bank as "Draft" → Content Admin creates Practice Set → marks "Ready for Learners."
-- **Edge case:** CSV import with validation errors → system shows line-by-line errors → allows re-upload.
+### 3. Unsubscribers
 
-#### 5. Simulation Settings
+- Table/list of users with no active subscription (expired or never subscribed).
+- Columns: Name, Email, Last Plan, Expired / Unsubscribed Date.
+- Searchable and sortable.
 
-- Configure timer, number of items, retake rules, passing score.
-- **Acceptance:** Owner sets Board Review Mode: 90 min timer, 60 items, 2 retakes, 75% passing score → saves. New learners taking this simulation see enforced settings. Existing in-progress attempts keep old settings.
-- **Edge case:** Invalid combination (60 items, 5-min timer) → validation error shown with recommendation.
+> Scenario: Admin opens Unsubscribers → identifies users whose plan expired this week → exports list for re-engagement.
 
-#### 6. Subscription & Payment Monitoring
+---
 
-- View payment status, subscription lifecycle, failed payment recovery.
-- **Acceptance:** Finance Admin opens Failed Payments → filters "Past 24 hours" → sees 3 payments failed (insufficient funds) → selects all → clicks "Send Retry Request" → learners receive email with "Retry Payment Now" button → payment succeeds via PayMongo → subscription auto-updates → learner regains access.
-- **Edge case:** Payment fails again on retry → escalated to "Requires Manual Follow-up" → account locked after 3 consecutive failures.
+### 4. Modules
 
-#### 7. Reports & Analytics
+- **Download CSV Template** button — downloads the required column format for question upload.
+- **Upload: Simulation Module** — uploads questions for the free simulation (non-subscriber flow).
+- **Upload: Subscriber Module** — uploads questions for paid subscriber courses.
 
-- Growth metrics, conversion rates, learner performance by topic.
-- **Acceptance:** Owner + Content Admin view monthly report → see low scores in Maternal Care topic → team creates reinforcement lessons targeting weak areas. Report exportable as CSV.
+CSV template columns: `question, choice_a, choice_b, choice_c, choice_d, correct_answer, explanation`
 
-#### 8. Activity History / Audit Log
+> Scenario: Admin downloads template → fills in 50 questions → clicks "Upload: Simulation Module" → selects CSV → system validates → questions imported and available in simulation flow.
 
-- Logs all major admin actions with who, what, when, before/after values.
-- **Acceptance:** Learner reports "timer was wrong" → Owner opens Activity History → filters by "Simulation Settings" → sees entry: "[Admin Name] changed Board Review Mode Duration: 90→60 mins on [date/time]" → Owner corrects setting → optionally notifies affected learners.
+> Edge case: CSV has missing columns → system shows row-by-row errors → admin corrects and re-uploads.
 
-### Admin Journey (Process Flow)
+---
 
-1. **Login** → Admin logs in → role-based dashboard loads → each role sees relevant modules and task queue.
-2. **Triage** → Owner reviews priority queue → assigns payment issues to Finance, access issues to Support → notifications sent to assigned staff.
-3. **Content** → Content Admin drafts lesson changes → submits for review → Owner approves → published to learners same day.
-4. **Finance** → Finance Admin checks failed payment events → triggers retry or manual follow-up → subscriber access interruption minimized.
-5. **Support** → Support Admin confirms learner identity → assists with reset flow → verifies login success → ticket resolved with confirmation.
+### 5. Payments
 
-### Non-Functional Requirements
+- **Plan Cards** — existing plans displayed as cards in a flex row. Each card shows: title, price, perks list.
+- **Add Payment Plan** button — opens a modal to create a new plan. Maximum 3 plans; button disabled at limit.
+  - Modal fields: Title, Price, Perks (list of features)
+  - **Save** button — saves and adds new card to the flex row.
+- Admin can edit or remove existing plan cards.
 
-| Requirement | Expectation | Scenario |
-|------------|-------------|---------|
-| **Security** | Role-based access control enforced server-side; unauthorized access blocked and logged | Support Admin opens finance settings → blocked by role policy → attempt logged → sensitive pages stay protected |
-| **Reliability** | Payment → subscription updates are atomic with issue tracking | Payment succeeds → subscription updates automatically → log entry created → no lost access after payment |
-| **Performance** | Core admin pages load in < 2 seconds | During live support call, user profile opens within 2 seconds → issue solved while learner is on the line |
-| **Auditability** | All admin actions logged with before/after values | Owner investigates reported issue → checks logs → identifies root action and responsible admin → faster troubleshooting |
-| **Data Privacy** | Payment info masked; PCI-DSS compliant handling | Admin sees masked card info only (`****1441`) → financial data exposure risk eliminated |
+> Scenario: Admin sees 2 existing plan cards (Monthly ₱299, Quarterly ₱799) → clicks "Add Payment Plan" → modal opens → enters Title: "Yearly", Price: ₱2,499, Perks: [Unlimited simulations, All modules, Priority support] → clicks Save → new card appears. "Add Payment Plan" now disabled (3 plans reached).
+
+---
 
 ### Open Decisions (Client Input Needed)
 
 | # | Decision | Option A | Option B |
 |---|---------|----------|----------|
-| 1 | Monthly plan renewal | **Auto-renew:** Continuous access, no action needed from learner | **Manual renew:** Learner notified before due date, must confirm payment each cycle |
-| 2 | Plan upgrade/downgrade timing | **Immediate:** Change takes effect now, prorated billing | **Next cycle:** Change takes effect on next billing date, simpler reconciliation |
-| 3 | Admin visibility of payment data | **Masked only:** All roles see `****1441` format | **Role-based:** Finance sees expanded transaction refs, others see masked only |
-| 4 | Account reset policy | **Verify → Reset → Log:** Support confirms identity before resetting access | Needs client to define acceptable verification methods (email, phone, security question) |
-| 5 | Content publishing approval | **Single approver:** Faster publishing, Content Admin → Owner approves | **Two-person approval:** Reduces risk for high-impact curriculum changes |
+| 1 | Monthly plan renewal | **Auto-renew:** PayMongo charges saved method automatically | **Manual renew:** Learner notified before due, must confirm each cycle |
+| 2 | Plan change timing | **Immediate:** Takes effect now, prorated billing | **Next cycle:** Takes effect on next billing date |
+| 3 | Account reset policy | **Verify → Reset → Log:** Support confirms identity first | Client to define: email OTP, phone call, or security question |

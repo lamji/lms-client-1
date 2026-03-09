@@ -51,12 +51,12 @@ export const PROPOSAL_SECTIONS: ProposalSection[] = [
     title: "Admin BRD",
     icon: "UserRound",
     children: [
-      { id: "admin-brd-main", title: "Objective", anchor: "admin-brd-main" },
-      { id: "admin-brd-rbac", title: "Roles and RBAC", anchor: "admin-brd-rbac" },
-      { id: "admin-brd-modules", title: "Modules and Acceptance", anchor: "admin-brd-modules" },
-      { id: "admin-brd-flow", title: "Process Flow", anchor: "admin-brd-flow" },
-      { id: "admin-brd-nfr", title: "Non-Functional Requirements", anchor: "admin-brd-nfr" },
-      { id: "admin-brd-open-items", title: "Open Decisions", anchor: "admin-brd-open-items" },
+      { id: "admin-brd-main", title: "Overview", anchor: "admin-brd-main" },
+      { id: "admin-brd-dashboard", title: "1. Dashboard", anchor: "admin-brd-dashboard" },
+      { id: "admin-brd-subscribers", title: "2. Subscribers", anchor: "admin-brd-subscribers" },
+      { id: "admin-brd-unsubscribers", title: "3. Unsubscribers", anchor: "admin-brd-unsubscribers" },
+      { id: "admin-brd-modules", title: "4. Modules", anchor: "admin-brd-modules" },
+      { id: "admin-brd-payments", title: "5. Payments", anchor: "admin-brd-payments" },
     ],
   },
 ];

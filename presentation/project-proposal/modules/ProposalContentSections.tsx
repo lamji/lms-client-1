@@ -924,73 +924,98 @@ function ProfileScreenSection() {
 function AdminBrdMainSection() {
   return (
     <section id="admin-brd-main" className="space-y-4">
-      <SectionTitle>Admin BRD: Purpose</SectionTitle>
+      <SectionTitle>Admin BRD: Overview</SectionTitle>
       <p className="text-zinc-700">
-        The admin area enables the team to run daily LMS operations in one place: manage learners, publish content,
-        monitor subscriptions, and track overall business performance.
+        Simple admin dashboard for managing the LMS platform day-to-day. Accessible via side navigation with 5 sections.
       </p>
-      <div className="rounded-lg border border-cyan-200 bg-cyan-50 p-4 text-sm text-cyan-900">
-        <p className="font-semibold">MVP Admin Scope</p>
-        <ul className="mt-2 list-disc pl-5 text-xs text-cyan-800">
-          <li>Dashboard overview with key metrics (active learners, failed payments, expiring plans)</li>
-          <li>User management with search, unlock, and subscription status</li>
-          <li>Content management with publishing approval workflow</li>
-          <li>Question bank with tagging and explanations</li>
-          <li>Simulation settings (timer, items, retakes)</li>
-          <li>Subscription and payment monitoring with retry flow</li>
-          <li>Reports and activity history / audit log</li>
-        </ul>
+      <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4">
+        <p className="mb-3 text-sm font-semibold text-zinc-900">Side Navigation</p>
+        <ol className="space-y-1.5 text-sm text-zinc-700">
+          <li className="flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded bg-cyan-600 text-[11px] font-bold text-white">1</span>
+            <span><span className="font-medium">Dashboard</span> — analytics cards and sales chart</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded bg-cyan-600 text-[11px] font-bold text-white">2</span>
+            <span><span className="font-medium">Subscribers</span> — list of subscribed users</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded bg-cyan-600 text-[11px] font-bold text-white">3</span>
+            <span><span className="font-medium">Unsubscribers</span> — list of unsubscribed users</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded bg-cyan-600 text-[11px] font-bold text-white">4</span>
+            <span><span className="font-medium">Modules</span> — upload question sets via CSV</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded bg-cyan-600 text-[11px] font-bold text-white">5</span>
+            <span><span className="font-medium">Payments</span> — manage subscription plans and pricing</span>
+          </li>
+        </ol>
       </div>
     </section>
   );
 }
 
-function AdminBrdRbacSection() {
+function AdminBrdDashboardSection() {
   return (
-    <section id="admin-brd-rbac" className="space-y-4">
-      <SectionTitle>Admin BRD: Team Roles</SectionTitle>
+    <section id="admin-brd-dashboard" className="space-y-4">
+      <SectionTitle>Admin: 1. Dashboard</SectionTitle>
+      <p className="text-zinc-700">Landing page after admin login. Shows a summary of key metrics at a glance.</p>
       <ul className="list-disc pl-6 text-zinc-700">
         <li>
-          <span className="font-semibold">Owner / Admin Lead:</span> Full control, team access setup, and final approvals.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario: Owner adds new staff member with email -{">"} assigns &quot;Support Admin&quot; role -{">"} saves. Staff receives
-            invitation email, can access Support dashboard, cannot access Finance or Settings modules (403 blocked and logged).
-          </span>
+          <span className="font-semibold">Analytics Cards</span> — displayed in a row at the top:
+          <ul className="mt-1 list-disc pl-6 text-sm">
+            <li>Total Sales (revenue)</li>
+            <li>Total Students (all registered users)</li>
+            <li>Subscribers (active paid users)</li>
+            <li>Total Courses / Modules</li>
+          </ul>
         </li>
         <li>
-          <span className="font-semibold">Content Admin:</span> Creates, edits, publishes, and archives courses, lessons, and questions.
+          <span className="font-semibold">Sales Chart</span> — line chart showing sales over time (weekly or monthly view).
           <span className="mt-1 block text-xs text-zinc-500">
-            Scenario: Content Admin opens Cardio Module 2 -{">"} updates lesson notes -{">"} clicks &quot;Request Publish&quot; -{">"} Owner
-            reviews diff and approves -{">"} published. Learners see revision within minutes. Previous version archived.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Finance Admin:</span> Reviews payments, plan status, and billing concerns.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario: Finance Admin opens failed payments -{">"} filters by today -{">"} sees 5 failures (insufficient funds) -{">"} selects
-            all -{">"} sends retry request to learners. Billing issues resolved before access expires.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Support Admin:</span> Assists users with account issues, login help, and subscription concerns.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario: Support Admin receives &quot;cannot log in&quot; ticket -{">"} searches learner email -{">"} sees &quot;Account Locked
-            (3 failed attempts)&quot; -{">"} clicks Unlock -{">"} system logs action -{">"} learner receives reset email -{">"} logs in within
-            one support session.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: Email not found -{">"} search returns &quot;No results&quot; with suggestion to search by name or phone.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Access Control:</span> Each role sees only the modules and actions they need. Unauthorized access returns 403 and is logged.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario: Support Admin navigates to /admin/pricing -{">"} system checks role server-side -{">"} returns 403 &quot;Access
-            Denied&quot; -{">"} attempt logged in audit trail with timestamp, user ID, and attempted resource. UI does not show restricted
-            menu items for this role.
+            Scenario: Admin opens Dashboard -{">"} sees 4 metric cards (₱48,500 sales, 320 students, 210 subscribers, 12 courses) -{">"} line
+            chart shows upward trend this month. Admin spots a dip in week 2 and checks Payments section for context.
           </span>
         </li>
       </ul>
+    </section>
+  );
+}
+
+function AdminBrdSubscribersSection() {
+  return (
+    <section id="admin-brd-subscribers" className="space-y-4">
+      <SectionTitle>Admin: 2. Subscribers</SectionTitle>
+      <p className="text-zinc-700">List of all users with an active paid subscription.</p>
+      <ul className="list-disc pl-6 text-zinc-700">
+        <li>Displays a table/list of subscribed users.</li>
+        <li>Each row shows: name, email, plan (Monthly / Quarterly / Yearly), subscription start and end date, status.</li>
+        <li>Searchable and sortable by name or email.</li>
+      </ul>
+      <span className="block text-xs text-zinc-500">
+        Scenario: Admin opens Subscribers -{">"} sees 210 active learners -{">"} searches &quot;juan&quot; -{">"} finds Juan dela Cruz on
+        Quarterly plan expiring April 10 -{">"} verifies account is in good standing.
+      </span>
+    </section>
+  );
+}
+
+function AdminBrdUnsubscribersSection() {
+  return (
+    <section id="admin-brd-unsubscribers" className="space-y-4">
+      <SectionTitle>Admin: 3. Unsubscribers</SectionTitle>
+      <p className="text-zinc-700">List of users who have no active subscription (expired or never subscribed).</p>
+      <ul className="list-disc pl-6 text-zinc-700">
+        <li>Displays a table/list of unsubscribed users.</li>
+        <li>Each row shows: name, email, last plan (if any), date unsubscribed or expired.</li>
+        <li>Searchable and sortable by name or email.</li>
+      </ul>
+      <span className="block text-xs text-zinc-500">
+        Scenario: Admin opens Unsubscribers -{">"} sees 110 lapsed users -{">"} identifies users whose plan expired this week -{">"}
+        exports list for re-engagement campaign.
+      </span>
     </section>
   );
 }
@@ -998,279 +1023,64 @@ function AdminBrdRbacSection() {
 function AdminBrdModulesSection() {
   return (
     <section id="admin-brd-modules" className="space-y-4">
-      <SectionTitle>Admin BRD: What Admin Can Do</SectionTitle>
+      <SectionTitle>Admin: 4. Modules</SectionTitle>
+      <p className="text-zinc-700">Admin can upload question sets for the reviewer via CSV files.</p>
       <ul className="list-disc pl-6 text-zinc-700">
         <li>
-          <span className="font-semibold">Dashboard Overview:</span> Active learners, paid learners, expiring plans, and failed payments.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Owner): Opens dashboard at 9 AM -{">"} sees 14 failed payments, 3 support tickets, 2 expiring plans -{">"} assigns
-            failed payments to Finance Admin, tickets to Support Admin -{">"} each staff member sees assigned items in their queue within 10
-            seconds.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: 100+ failures -{">"} paginated list with bulk-assign for top priority items.
-          </span>
+          <span className="font-semibold">Download CSV Template</span> — button to download the required CSV format so admin can
+          prepare questions correctly before uploading.
         </li>
         <li>
-          <span className="font-semibold">User Management:</span> Search by email/name, view profile, check subscription status, unlock accounts.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Support Admin): Searches learner email -{">"} profile loads -{">"} sees &quot;Account Locked (3 failed login
-            attempts)&quot; -{">"} clicks Unlock -{">"} system logs action with admin ID and timestamp -{">"} learner receives reset email
-            within 1 minute.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: Email not found -{">"} returns &quot;No results&quot; with suggestion to search by name or phone. Account suspended by
-            admin -{">"} requires Owner approval to unlock.
-          </span>
+          <span className="font-semibold">Upload: Simulation Module</span> — uploads questions used for the free simulation (non-subscriber flow).
         </li>
         <li>
-          <span className="font-semibold">Content Management:</span> Create, edit, publish, and archive courses, modules, and lessons.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Content Admin): New exam guideline arrives -{">"} edits affected lessons -{">"} clicks &quot;Request Publish&quot; -{">"}
-            Owner reviews diff view -{">"} approves -{">"} content goes live. Previous version archived with full change history.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: Two admins editing same lesson -{">"} system detects conflict -{">"} shows merge prompt. Approval denied -{">"} content
-            stays in &quot;Draft&quot;, Content Admin notified with reason.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Question Bank:</span> Add questions, set topic/difficulty tags, attach explanations per choice.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Content Admin): Adds 20 questions tagged Pharma / Hard -{">"} attaches explanations (why each choice is right or
-            wrong) -{">"} submits. Questions appear as &quot;Draft&quot; -{">"} creates Practice Set &quot;Pharma Hard Review&quot; -{">"} marks
-            &quot;Ready for Learners.&quot;
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: CSV import with errors -{">"} system shows line-by-line validation errors -{">"} allows re-upload.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Simulation Settings:</span> Timer, number of items, retake rules, passing score.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Owner): Sets Board Review Mode: 90 min timer, 60 items, 2 retakes, 75% passing score -{">"} saves. New learners see
-            enforced settings. Existing in-progress attempts keep old settings. Timer enforced server-side.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: Invalid combination (60 items, 5-min timer) -{">"} validation error with recommendation. Learner exhausts retakes -{">"}
-            shown &quot;Contact Support&quot; message.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Subscription & Payment Monitoring:</span> Payment status, subscription lifecycle, failed payment recovery.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Finance Admin): Opens Failed Payments -{">"} filters &quot;Past 24 hours&quot; -{">"} sees 3 failures (insufficient
-            funds) -{">"} selects all -{">"} clicks &quot;Send Retry Request&quot; -{">"} learners receive email with &quot;Retry Payment
-            Now&quot; button -{">"} payment succeeds via PayMongo -{">"} subscription auto-updates -{">"} learner regains access.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: Payment fails again on retry -{">"} escalated to &quot;Requires Manual Follow-up&quot;. Account locked after 3
-            consecutive failures.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Reports & Analytics:</span> Growth metrics, conversion rates, learner performance by topic.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Owner + Content Admin): View monthly report -{">"} see low scores in Maternal Care -{">"} team creates reinforcement
-            lessons targeting weak areas. Report exportable as CSV.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Activity History / Audit Log:</span> Logs all major admin actions with who, what, when, before/after values.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Owner): Learner reports &quot;timer was wrong&quot; -{">"} Owner opens Activity History -{">"} filters by &quot;Simulation
-            Settings&quot; -{">"} sees entry: &quot;[Admin Name] changed Board Review Mode Duration: 90→60 mins on [date/time]&quot; -{">"}
-            corrects setting -{">"} optionally notifies affected learners.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: Very old logs (1+ year) -{">"} archived but still searchable with slower query. Multiple changes by different admins
-            -{">"} shows full chain of changes.
-          </span>
+          <span className="font-semibold">Upload: Subscriber Module</span> — uploads questions used for paid subscriber courses.
         </li>
       </ul>
+      <span className="block text-xs text-zinc-500">
+        Scenario: Admin clicks &quot;Download Template&quot; -{">"} gets CSV with columns (question, choice_a, choice_b, choice_c,
+        choice_d, correct_answer, explanation) -{">"} fills in 50 questions -{">"} clicks &quot;Upload: Simulation Module&quot; -{">"} selects
+        CSV -{">"} system validates and imports -{">"} questions available in the simulation flow.
+      </span>
+      <span className="mt-1 block text-xs text-zinc-400">
+        Edge case: CSV has missing columns or invalid format -{">"} system shows row-by-row errors -{">"} admin corrects and re-uploads.
+      </span>
     </section>
   );
 }
 
-function AdminBrdFlowSection() {
+function AdminBrdPaymentsSection() {
   return (
-    <section id="admin-brd-flow" className="space-y-4">
-      <SectionTitle>Admin BRD: Admin Journey</SectionTitle>
+    <section id="admin-brd-payments" className="space-y-4">
+      <SectionTitle>Admin: 5. Payments</SectionTitle>
+      <p className="text-zinc-700">Admin manages subscription plans and pricing. Maximum of 3 plans.</p>
       <ul className="list-disc pl-6 text-zinc-700">
         <li>
-          <span className="font-semibold">Step 1 — Login:</span> Admin logs in and lands on role-based dashboard.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Support Admin): Enters email and password -{">"} clicks Login -{">"} system validates credentials -{">"} loads Support
-            Admin dashboard with 5 assigned tickets, 3 pending unlocks. Finance, Content, and Settings modules are hidden.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: User with multiple roles -{">"} show role selector, default to primary role, allow quick switch. Session timeout
-            -{">"} redirect to login, preserve intended destination for post-login redirect.
-          </span>
+          <span className="font-semibold">Plan Cards</span> — existing plans displayed as cards in a flex row. Each card shows: plan
+          title, price, and list of perks.
         </li>
         <li>
-          <span className="font-semibold">Step 2 — Triage:</span> Owner reviews priority queue and distributes work.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Owner): Reviews queue -{">"} assigns 14 failed payment items to Finance Admin -{">"} assigns 3 account access tickets to
-            Support Admin -{">"} notifications sent within 10 seconds -{">"} assigned items appear in each staff member&apos;s task queue.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: Staff member offline -{">"} show &quot;Last seen X minutes ago&quot; warning. Staff already has 5+ assigned items
-            -{">"} show workload warning.
-          </span>
+          <span className="font-semibold">Add Payment Plan</span> — button opens a modal. Maximum of 3 plans total; button is disabled
+          when 3 plans already exist.
+          <ul className="mt-1 list-disc pl-6 text-sm">
+            <li>Modal fields: Title, Price, Perks (list of features)</li>
+            <li>Save button — saves the new plan and adds it as a card.</li>
+          </ul>
         </li>
         <li>
-          <span className="font-semibold">Step 3 — Content:</span> Content team updates lessons and publishes approved changes.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Content Admin): Drafts lesson changes -{">"} submits for review -{">"} Owner reviews diff -{">"} approves -{">"} content
-            published to learners same day. Learners in active session prompted to refresh after completing current lesson.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Step 4 — Finance:</span> Finance team reviews billing events and resolves failures.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Finance Admin): Checks failed payment events -{">"} sends bulk retry request to 3 affected learners -{">"} learners
-            click &quot;Retry Payment Now&quot; in email -{">"} payment succeeds via PayMongo -{">"} subscription restored automatically.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Step 5 — Support:</span> Support team assists learners and confirms resolution.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Support Admin): Receives ticket -{">"} confirms learner identity (email verification) -{">"} triggers account reset flow
-            -{">"} verifies learner can log in successfully -{">"} closes ticket with resolution note. All actions logged in audit trail.
-          </span>
+          Admin can edit or remove existing plans directly on the card.
         </li>
       </ul>
+      <span className="block text-xs text-zinc-500">
+        Scenario: Admin opens Payments -{">"} sees 2 existing plan cards (Monthly ₱299, Quarterly ₱799) -{">"} clicks &quot;Add Payment
+        Plan&quot; -{">"} modal opens -{">"} enters Title: &quot;Yearly&quot;, Price: ₱2,499, Perks: [Unlimited simulations, All modules,
+        Priority support] -{">"} clicks Save -{">"} new card appears in the flex row. &quot;Add Payment Plan&quot; button is now disabled
+        (3 plans reached).
+      </span>
     </section>
   );
 }
 
-function AdminBrdNfrSection() {
-  return (
-    <section id="admin-brd-nfr" className="space-y-4">
-      <SectionTitle>Admin BRD: Quality Expectations</SectionTitle>
-      <ul className="list-disc pl-6 text-zinc-700">
-        <li>
-          <span className="font-semibold">Security:</span> Role-based access control enforced server-side; unauthorized access blocked and logged.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Support Admin): Navigates to /admin/pricing -{">"} server checks role -{">"} returns 403 -{">"} attempt logged with
-            timestamp, user ID, and resource. Sensitive pages stay protected. Repeated failed attempts (5+) flag as suspicious and alert
-            Owner.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Reliability:</span> Payment and subscription updates are atomic with issue tracking.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Finance Admin): Payment succeeds -{">"} subscription updates automatically -{">"} log entry created -{">"} learner
-            unlocks paid modules without re-login. No lost access after successful payment.
-          </span>
-          <span className="mt-1 block text-xs text-zinc-400">
-            Edge case: Subscription update fails after payment success -{">"} system retries with exponential backoff -{">"} alert Finance
-            Admin if still failing after 3 retries.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Performance:</span> Core admin pages load in under 2 seconds.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Support Admin): During a live support call, opens learner profile -{">"} page loads within 2 seconds -{">"} issue
-            resolved while learner is still on the line.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Auditability:</span> All admin actions logged with before/after values, timestamp, and admin ID.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (Owner): Investigates reported issue -{">"} opens Activity History -{">"} filters by date range and module -{">"}
-            identifies root action and responsible admin -{">"} resolves within 15 minutes.
-          </span>
-        </li>
-        <li>
-          <span className="font-semibold">Data Privacy:</span> Payment info masked; PCI-DSS compliant handling.
-          <span className="mt-1 block text-xs text-zinc-500">
-            Scenario (All Roles): Admin views learner payment section -{">"} sees only masked values (****1441) -{">"} cannot copy or export
-            full card numbers. Finance Admin may view expanded transaction references from PayMongo but never full card details.
-          </span>
-        </li>
-      </ul>
-    </section>
-  );
-}
-
-function AdminBrdOpenItemsSection() {
-  return (
-    <section id="admin-brd-open-items" className="space-y-4">
-      <SectionTitle>Admin BRD: Client Decisions Needed</SectionTitle>
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-zinc-200 text-left">
-              <th className="pb-2 pr-4 font-semibold text-zinc-900">#</th>
-              <th className="pb-2 pr-4 font-semibold text-zinc-900">Decision</th>
-              <th className="pb-2 pr-4 font-semibold text-zinc-900">Option A</th>
-              <th className="pb-2 font-semibold text-zinc-900">Option B</th>
-            </tr>
-          </thead>
-          <tbody className="text-zinc-700">
-            <tr className="border-b border-zinc-100">
-              <td className="py-3 pr-4 align-top">1</td>
-              <td className="py-3 pr-4 align-top font-medium">Monthly plan renewal</td>
-              <td className="py-3 pr-4 align-top">
-                <span className="font-medium">Auto-renew:</span> Continuous access, no action needed from learner. PayMongo charges
-                saved payment method automatically.
-              </td>
-              <td className="py-3 align-top">
-                <span className="font-medium">Manual renew:</span> Learner notified before due date, must confirm payment each cycle.
-                Requires reminder emails.
-              </td>
-            </tr>
-            <tr className="border-b border-zinc-100">
-              <td className="py-3 pr-4 align-top">2</td>
-              <td className="py-3 pr-4 align-top font-medium">Plan change timing</td>
-              <td className="py-3 pr-4 align-top">
-                <span className="font-medium">Immediate:</span> Change takes effect now with prorated billing. Learner gets instant
-                access to new tier.
-              </td>
-              <td className="py-3 align-top">
-                <span className="font-medium">Next cycle:</span> Change takes effect on next billing date. Simpler reconciliation but
-                learner waits.
-              </td>
-            </tr>
-            <tr className="border-b border-zinc-100">
-              <td className="py-3 pr-4 align-top">3</td>
-              <td className="py-3 pr-4 align-top font-medium">Admin payment visibility</td>
-              <td className="py-3 pr-4 align-top">
-                <span className="font-medium">Masked only:</span> All roles see ****1441 format. Maximum privacy.
-              </td>
-              <td className="py-3 align-top">
-                <span className="font-medium">Role-based:</span> Finance sees expanded transaction references from PayMongo. Support and
-                Content see masked only.
-              </td>
-            </tr>
-            <tr className="border-b border-zinc-100">
-              <td className="py-3 pr-4 align-top">4</td>
-              <td className="py-3 pr-4 align-top font-medium">Account reset policy</td>
-              <td className="py-3 pr-4 align-top" colSpan={2}>
-                <span className="font-medium">Verify → Reset → Log:</span> Support confirms identity before resetting. Client needs to
-                define acceptable verification methods (email OTP, phone call, security question).
-              </td>
-            </tr>
-            <tr>
-              <td className="py-3 pr-4 align-top">5</td>
-              <td className="py-3 pr-4 align-top font-medium">Content publishing approval</td>
-              <td className="py-3 pr-4 align-top">
-                <span className="font-medium">Single approver:</span> Content Admin submits → Owner approves → published. Faster
-                turnaround.
-              </td>
-              <td className="py-3 align-top">
-                <span className="font-medium">Two-person approval:</span> Content Admin submits → peer reviews → Owner approves. Reduces
-                risk for high-impact curriculum changes.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-  );
-}
 
 export function ProposalContentSections({ activeSection, activeSubSection }: ProposalContentSectionsProps) {
   if (process.env.NODE_ENV !== "production") {
@@ -1295,11 +1105,11 @@ export function ProposalContentSections({ activeSection, activeSubSection }: Pro
   }
   if (activeSection === "profile-screen") return <ProfileScreenSection />;
   if (activeSection === "admin-brd") {
-    if (activeSubSection === "admin-brd-rbac") return <AdminBrdRbacSection />;
+    if (activeSubSection === "admin-brd-dashboard") return <AdminBrdDashboardSection />;
+    if (activeSubSection === "admin-brd-subscribers") return <AdminBrdSubscribersSection />;
+    if (activeSubSection === "admin-brd-unsubscribers") return <AdminBrdUnsubscribersSection />;
     if (activeSubSection === "admin-brd-modules") return <AdminBrdModulesSection />;
-    if (activeSubSection === "admin-brd-flow") return <AdminBrdFlowSection />;
-    if (activeSubSection === "admin-brd-nfr") return <AdminBrdNfrSection />;
-    if (activeSubSection === "admin-brd-open-items") return <AdminBrdOpenItemsSection />;
+    if (activeSubSection === "admin-brd-payments") return <AdminBrdPaymentsSection />;
     return <AdminBrdMainSection />;
   }
   return <ScopeSection />;
