@@ -55,9 +55,9 @@ This covers **full development, deployment, and 3 months of post-launch support*
 ---
 
 #### **Phase 2: Mobile Apps (iOS + Android)** (Weeks 5–8)
-**Deliverable:** Native iOS and Android apps with feature parity to web
+**Deliverable:** React Native iOS and Android apps with feature parity to web
 
-- Cross-platform native development (Swift for iOS, Kotlin for Android)
+- React Native cross-platform development (single codebase for iOS + Android)
 - Offline capability for course content
 - Push notifications for learning reminders
 - One-time purchase & auto-renew subscription support
