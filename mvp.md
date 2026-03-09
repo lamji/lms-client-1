@@ -108,8 +108,8 @@ This covers **full development, deployment, and 3 months of post-launch support*
 | **Phase 3 & 4 Complete (Week 16)** | Live on App Store + Play Store | 15% | 45,000 – 52,500 | Upon final launch |
 | **TOTAL** | Full platform live, production-ready | 100% | 300,000 – 350,000 | — |
 
-**Payment Method:** Bank transfer (preferred) or cryptocurrency accepted
-**Invoice Terms:** 50% upon signing, 50% before Phase 1 delivery (flexible based on agreement)
+**Payment Method:** Bank transfer only
+**Invoice Terms:** 30% down payment upfront, remaining 70% split across phase milestones
 
 ### Developer Ongoing Revenue & Support (15% Monthly)
 
