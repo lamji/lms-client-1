@@ -29,8 +29,8 @@ This covers **full development, deployment, and 3 months of post-launch support*
 - **Ongoing Revenue:** 15% monthly from all subscription revenue for maintenance, support, and feature upgrades (no additional development costs for updates)
 
 **Example:** If the platform generates ₱100,000/month in subscription revenue:
-- Client receives: ₱15,000/month for life (maintenance + future upgrades included)
-- Developer retains: ₱85,000/month
+- Developer receives: ₱15,000/month for life (maintenance + future upgrades included)
+- Client retains: ₱85,000/month
 
 ### Project Timeline & Deliverables
 
