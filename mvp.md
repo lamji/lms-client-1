@@ -58,7 +58,6 @@ This covers **full development, deployment, and 3 months of post-launch support*
 **Deliverable:** React Native iOS and Android apps with feature parity to web
 
 - React Native cross-platform development (single codebase for iOS + Android)
-- Offline capability for course content
 - Push notifications for learning reminders
 - One-time purchase & auto-renew subscription support
 - Apple App Store & Google Play Store app submission prep
@@ -68,13 +67,11 @@ This covers **full development, deployment, and 3 months of post-launch support*
 
 ---
 
-#### **Phase 3: QA, Stress Testing & Security Hardening** (Weeks 9–10)
-**Deliverable:** Production-ready, security-audited platform
+#### **Phase 3: QA & Stress Testing** (Weeks 9–10)
+**Deliverable:** Production-ready platform
 
 - End-to-end testing across all devices and browsers
 - Load testing (1,000+ concurrent users)
-- Security audit (OWASP Top 10, PCI-DSS compliance for payments)
-- Penetration testing by third-party security firm (optional add-on)
 - Bug fixes and performance optimization
 - **Delivery:** 1–2 weeks post-Phase 2
 
