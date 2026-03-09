@@ -25,12 +25,12 @@ This covers **full development, deployment, and 3 months of post-launch support*
 
 #### Ownership & Revenue Share
 
-- **Client Equity:** 15% ownership stake
-- **Ongoing Revenue:** 15% monthly from all subscription revenue for maintenance, support, and feature upgrades (no additional development costs for updates)
+- **Developer Equity:** 15% ownership stake in the platform
+- **Developer Ongoing Revenue:** 15% monthly from all subscription revenue for maintenance, support, and feature upgrades (no additional development costs for updates)
 
 **Example:** If the platform generates ₱100,000/month in subscription revenue:
-- Developer receives: ₱15,000/month for life (maintenance + future upgrades included)
-- Client retains: ₱85,000/month
+- Developer receives: ₱15,000/month perpetually (for maintenance + future upgrades + feature development)
+- Client retains: ₱85,000/month as net profit
 
 ### Project Timeline & Deliverables
 
@@ -99,9 +99,9 @@ This covers **full development, deployment, and 3 months of post-launch support*
 | **Phase 3 & 4 (Week 16)** | Live on App Store + Play Store | 15% | 45,000 – 52,500 |
 | **TOTAL** | Full platform live | 100% | 300,000 – 350,000 |
 
-### Ongoing Revenue & Support (15% Monthly)
+### Developer Ongoing Revenue & Support (15% Monthly)
 
-After launch, the 15% monthly commission covers **unlimited**:
+After launch, the developer receives 15% of all monthly subscription revenue in perpetuity, which covers **unlimited**:
 
 - Bug fixes and hotfixes
 - Performance optimization
@@ -110,8 +110,9 @@ After launch, the 15% monthly commission covers **unlimited**:
 - Infrastructure scaling
 - Third-party service integrations (e.g., new payment gateways)
 - Analytics dashboards and reporting
+- 24/7 monitoring and uptime management
 
-**No additional development costs.** The 15% covers everything.
+**No additional development costs for the client.** The 15% developer commission covers everything.
 
 ### Why This Pricing is Fair
 
@@ -124,12 +125,18 @@ After launch, the 15% monthly commission covers **unlimited**:
 | **Support** | 3 years of maintenance + upgrades included in 15% |
 | **ROI** | Breakeven within 6–12 months depending on marketing |
 
-### Success Metrics
+### Success Metrics & Revenue Projections
 
 - **Month 1–3:** Onboard 100–200 learners, validate product-market fit
-- **Month 6:** Reach ₱50,000+/month in recurring revenue (client receives ₱7,500/month)
-- **Year 1:** Scale to ₱200,000+/month recurring (client receives ₱30,000/month)
+- **Month 6:** Reach ₱50,000+/month in recurring revenue
+  - Developer receives: ₱7,500/month (15%)
+  - Client retains: ₱42,500/month (85%)
+- **Year 1:** Scale to ₱200,000+/month recurring
+  - Developer receives: ₱30,000/month (15%)
+  - Client retains: ₱170,000/month (85%)
 - **Year 3:** Platform self-sustainable; developer overhead reduces to 5 hours/week
+  - Developer receives: ₱45,000–75,000/month (15% of ₱300k–500k MRR)
+  - Client retains: ₱255,000–425,000/month (85%)
 
 ---
 
